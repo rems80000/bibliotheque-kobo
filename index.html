@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="theme-color" content="#f4efe4">
+  <title>Bibliothèque Kobo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">Bibliothèque de Gwendoline</p>
+    <h1>Choisir un livre</h1>
+    <p id="library-summary" class="summary">Chargement du catalogue…</p>
+  </header>
+
+  <main>
+    <form id="filters" class="filter-panel">
+      <label for="search">Titre, auteur ou série</label>
+      <div class="search-row">
+        <input id="search" name="search" type="search" autocomplete="off" placeholder="Ex. Agatha Christie">
+        <button type="submit" class="primary">Rechercher</button>
+      </div>
+
+      <div class="filter-grid">
+        <label>Catégorie
+          <select id="category"><option value="">Toutes</option></select>
+        </label>
+        <label>Format
+          <select id="format">
+            <option value="">Tous</option><option>EPUB</option><option>PDF</option><option>MOBI</option><option>CBZ</option><option>CBR</option>
+          </select>
+        </label>
+        <label>Initiale de l’auteur
+          <select id="author-letter"><option value="">Toutes</option></select>
+        </label>
+        <label>Trier par
+          <select id="sort"><option value="title">Titre</option><option value="author">Auteur</option><option value="series">Série</option><option value="rating">Ma note</option></select>
+        </label>
+        <label>Note minimale
+          <select id="rating"><option value="0">Toutes</option><option value="1">★ et plus</option><option value="2">★★ et plus</option><option value="3">★★★ et plus</option><option value="4">★★★★ et plus</option><option value="5">★★★★★</option></select>
+        </label>
+        <label class="check-label"><input id="favorites" type="checkbox"> Mes favoris uniquement</label>
+      </div>
+
+      <button id="reset" type="button" class="secondary">Effacer les filtres</button>
+    </form>
+
+    <section aria-labelledby="results-title">
+      <div class="results-heading">
+        <h2 id="results-title">Résultats</h2>
+        <p id="result-count" aria-live="polite"></p>
+      </div>
+      <div id="book-list" class="book-list"></div>
+      <nav id="pagination" class="pagination" aria-label="Pages de résultats"></nav>
+    </section>
+  </main>
+
+  <footer>Catalogue personnel · Les livres restent stockés dans Google Drive</footer>
+  <script src="app.js"></script>
+</body>
+</html>
